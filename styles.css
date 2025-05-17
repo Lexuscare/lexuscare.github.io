@@ -1,0 +1,170 @@
+:root {
+    --pink: #e91e63;
+    --light-pink: #fce4ec;
+    --dark-pink: #ad1457;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3,
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+}
+
+.text-pink {
+    color: var(--pink) !important;
+}
+
+.bg-pink {
+    background-color: var(--pink) !important;
+}
+
+.btn-pink {
+    background-color: var(--pink);
+    color: white;
+    border: none;
+}
+
+.btn-pink:hover {
+    background-color: var(--dark-pink);
+}
+
+/* Default: Small screens (mobile) */
+.hero-carousel .carousel-inner {
+    height: 30vh;
+    object-fit: cover;
+}
+
+/* Tablets and up (768px and above) */
+@media (min-width: 768px) {
+    .hero-carousel .carousel-inner {
+        height: 60vh;
+    }
+}
+
+.treatment-card {
+    border: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.treatment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(233, 30, 99, 0.3);
+}
+
+.card-img-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    padding: 1rem;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    padding: 60px 0;
+}
+
+footer {
+    background-color: #212529;
+    color: white;
+}
+
+footer a {
+    color: #fff;
+}
+
+footer a:hover {
+    color: #f39c12;
+}
+
+#luxusCarousel .carousel-control-prev-icon,
+#luxusCarousel .carousel-control-next-icon {
+    filter: invert(100%);
+}
+
+#luxusCarousel .carousel-indicators button {
+    background-color: #fff;
+}
+
+@media (max-width: 576px) {
+    .treatment-card h5 {
+        font-size: 1rem;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.treatment-card {
+    border: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 300px;
+    /* Set a fixed height */
+}
+
+.treatment-card img {
+    object-fit: cover;
+    /* Ensures that the image covers the space without stretching */
+    height: 100%;
+    /* Ensures the image takes up the full height of the card */
+    width: 100%;
+    /* Ensures the image takes up the full width of the card */
+}
+
+.treatment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(233, 30, 99, 0.3);
+}
+
+.card-img-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    padding: 1rem;
+    border-radius: 0 0 1rem 1rem;
+    height: 100%;
+    /* Ensure overlay covers the entire card */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.back-to-top {
+    width: 48px;
+    height: 48px;
+    background-color: var(--pink);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    z-index: 1000;
+}
