@@ -1,247 +1,661 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Luxus Care | Skin, Hair & Beauty Clinic</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexuscare Brows and Beauty - Transform Your Confidence</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-image: url('https://placehold.co/1920x800/e0e0e0/ffffff?text=Captivating+Beauty+Transformation');
+            background-size: cover;
+            background-position: center;
+        }
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-image: url('https://placehold.co/768x400/e0e0e0/ffffff?text=Captivating+Beauty+Transformation+Mobile');
+            }
+        }
+
+        /* Gradient for CTA buttons for premium feel */
+        .btn-primary {
+            background: linear-gradient(to right, #fca311, #ffbf00); /* Example: gold/amber gradient */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            box-shadow: 0 4px 15px rgba(252, 163, 17, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(252, 163, 17, 0.6);
+        }
+        /* Color palette (soft, sophisticated tones) */
+        .bg-primary-light { background-color: #F8F5F2; /* Creamy White */ }
+        .text-primary-dark { color: #333333; /* Deep Charcoal */ }
+        .text-accent { color: #D8BFD8; /* Soft Blush Pink */ } /* Used blush pink as an accent */
+        .border-accent { border-color: #D8BFD8; }
+
+        /* Icon styling (phosphor icons via CDN) - Placeholder for actual icons */
+        .icon {
+            font-size: 3rem; /* Adjust size as needed */
+            color: #ffbf00; /* Gold/accent color */
+        }
+    </style>
+    <!-- Phosphor Icons for simple illustrative icons (CDN) -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/phosphor.js"></script>
 </head>
+<body class="bg-primary-light text-primary-dark">
 
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- Header -->
+    <header class="bg-white shadow-sm py-4 px-6 md:px-12 fixed w-full z-50 rounded-b-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center space-x-2">
+                <!-- Placeholder for actual logo -->
+                <img src="https://placehold.co/50x50/333333/ffffff?text=LX" alt="Lexuscare Logo" class="h-10 w-10 rounded-full">
+                <span class="text-2xl font-bold text-primary-dark">Lexuscare</span>
+            </a>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-pink fs-3" href="#">Luxus Care</a>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <!-- Navigation Bar (Desktop) -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">Home</a>
+                <a href="#services" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">Services</a>
+                <a href="#gallery" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">Gallery</a>
+                <a href="#about" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">About Us</a>
+                <a href="#testimonials" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">Testimonials</a>
+                <a href="#faqs" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">FAQs</a>
+                <a href="#contact" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">Contact Us</a>
+            </nav>
+
+            <!-- CTA Buttons (Desktop) -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="tel:+919876543210" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">+91 98765 43210</a>
+                <a href="#booking" class="btn-primary text-white font-semibold py-2 px-6 rounded-full shadow-lg">Book Now</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#treatments" class="nav-link">Treatments</a></li>
-                    <li class="nav-item"><a href="#testimonials" class="nav-link">Reviews</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <nav id="mobile-menu" class="hidden md:hidden mt-4 space-y-3 text-center">
+            <a href="#home" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">Home</a>
+            <a href="#services" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">Services</a>
+            <a href="#gallery" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">Gallery</a>
+            <a href="#about" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">About Us</a>
+            <a href="#testimonials" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">Testimonials</a>
+            <a href="#faqs" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">FAQs</a>
+            <a href="#contact" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">Contact Us</a>
+            <div class="pt-4 border-t border-gray-200">
+                <a href="tel:+919876543210" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">+91 98765 43210</a>
+                <a href="#booking" class="block btn-primary text-white font-semibold py-2 px-6 rounded-full mx-auto mt-3 shadow-lg max-w-xs">Book Your Consultation</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-20"> <!-- Padding top to account for fixed header -->
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg relative h-screen flex items-center justify-center text-center px-4 overflow-hidden rounded-b-2xl">
+            <div class="absolute inset-0 bg-black opacity-40"></div> <!-- Overlay for text readability -->
+            <div class="relative z-10 text-white max-w-4xl mx-auto p-4">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4 drop-shadow-md">Transform Your Beauty. Unleash Your Confidence.</h1>
+                <p class="text-lg sm:text-xl md:text-2xl mb-8 drop-shadow-md">Hyderabad's Trusted Destination for Advanced Beauty & Hair Enhancement.</p>
+                <a href="#booking" class="btn-primary text-white font-semibold py-3 px-8 text-xl rounded-full shadow-xl hover:scale-105 transition-all duration-300">Book Your Consultation</a>
+            </div>
+        </section>
+
+        <!-- "Our Specialties" / Service Highlights Section -->
+        <section id="services-highlights" class="py-16 bg-white px-4">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-12">Our Specialties</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Service Card 1: Eyebrow Microblading -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <i class="ph ph-sparkle text-accent icon mb-4"></i> <!-- Example icon -->
+                        <h3 class="text-2xl font-semibold mb-3 text-primary-dark">Eyebrow Microblading</h3>
+                        <p class="text-gray-600 mb-5">Achieve perfectly shaped, natural-looking brows with our expert microblading techniques.</p>
+                        <a href="microblading.html" class="text-accent hover:underline font-medium">Learn More &rarr;</a>
+                    </div>
+                    <!-- Service Card 2: Lip Tinting / Neutralization -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <i class="ph ph-heartbeat text-accent icon mb-4"></i> <!-- Example icon -->
+                        <h3 class="text-2xl font-semibold mb-3 text-primary-dark">Lip Tinting / Neutralization</h3>
+                        <p class="text-gray-600 mb-5">Restore vibrant, beautiful lip color and neutralize unwanted tones for a perfect pout.</p>
+                        <a href="lip-tinting.html" class="text-accent hover:underline font-medium">Learn More &rarr;</a>
+                    </div>
+                    <!-- Service Card 3: Hydra Facial -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <i class="ph ph-drop text-accent icon mb-4"></i> <!-- Example icon -->
+                        <h3 class="text-2xl font-semibold mb-3 text-primary-dark">Hydra Facial</h3>
+                        <p class="text-gray-600 mb-5">Deep cleanse, exfoliate, and hydrate your skin for an instant, radiant glow.</p>
+                        <a href="hydrafacial.html" class="text-accent hover:underline font-medium">Learn More &rarr;</a>
+                    </div>
+                    <!-- Service Card 4: Laser Hair Removal -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <i class="ph ph-magic-wand text-accent icon mb-4"></i> <!-- Example icon -->
+                        <h3 class="text-2xl font-semibold mb-3 text-primary-dark">Laser Hair Removal</h3>
+                        <p class="text-gray-600 mb-5">Achieve smooth, hair-free skin with our advanced and safe laser hair removal treatments.</p>
+                        <a href="laser-hair-removal.html" class="text-accent hover:underline font-medium">Learn More &rarr;</a>
+                    </div>
+                    <!-- Service Card 5: Hair Extensions -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <i class="ph ph-hair-connector text-accent icon mb-4"></i> <!-- Example icon -->
+                        <h3 class="text-2xl font-semibold mb-3 text-primary-dark">Hair Extensions</h3>
+                        <p class="text-gray-600 mb-5">Add volume and length to your hair with our high-quality, seamless hair extensions.</p>
+                        <a href="hair-extensions.html" class="text-accent hover:underline font-medium">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <a href="#services" class="btn-primary text-white font-semibold py-3 px-8 text-xl rounded-full shadow-lg hover:scale-105 transition-all duration-300">Explore All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- "Why Choose Lexuscare?" / Unique Selling Proposition (USP) Section -->
+        <section class="py-16 bg-primary-light px-4">
+            <div class="container mx-auto text-center max-w-5xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-12">Why Choose Lexuscare?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- USP 1 -->
+                    <div class="p-6 bg-white rounded-xl shadow-md text-center flex flex-col items-center">
+                        <i class="ph ph-medal text-accent icon mb-4"></i> <!-- Example icon -->
+                        <h3 class="text-xl font-semibold text-primary-dark mb-2">Certified Professionals</h3>
+                        <p class="text-gray-600">Our team comprises highly trained and certified beauty specialists.</p>
+                    </div>
+                    <!-- USP 2 -->
+                    <div class="p-6 bg-white rounded-xl shadow-md text-center flex flex-col items-center">
+                        <i class="ph ph-sparkle-gear text-accent icon mb-4"></i> <!-- Example icon -->
+                        <h3 class="text-xl font-semibold text-primary-dark mb-2">Customized Solutions</h3>
+                        <p class="text-gray-600">We tailor every treatment to your unique beauty needs and preferences.</p>
+                    </div>
+                    <!-- USP 3 -->
+                    <div class="p-6 bg-white rounded-xl shadow-md text-center flex flex-col items-center">
+                        <i class="ph ph-shield-check text-accent icon mb-4"></i> <!-- Example icon -->
+                        <h3 class="text-xl font-semibold text-primary-dark mb-2">Safe & Hygienic</h3>
+                        <p class="text-gray-600">Your safety is our priority; we adhere to the highest hygiene standards.</p>
+                    </div>
+                    <!-- USP 4 -->
+                    <div class="p-6 bg-white rounded-xl shadow-md text-center flex flex-col items-center">
+                        <i class="ph ph-flower-lotus text-accent icon mb-4"></i> <!-- Example icon -->
+                        <h3 class="text-xl font-semibold text-primary-dark mb-2">Natural, Lasting Results</h3>
+                        <p class="text-gray-600">Experience beauty enhancements that look natural and last.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Block -->
+        <section class="bg-gray-800 py-16 px-4 text-white text-center rounded-xl mx-auto my-16 max-w-6xl">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">Ready for Your Transformation?</h2>
+            <p class="text-xl sm:text-2xl mb-8">Book Your Appointment Today and Experience the Lexuscare Difference!</p>
+            <a href="#booking" class="btn-primary text-white font-semibold py-3 px-8 text-xl rounded-full shadow-xl hover:scale-105 transition-all duration-300">Book Now</a>
+        </section>
+
+        <!-- Testimonial Slider/Carousel -->
+        <section id="testimonials" class="py-16 bg-white px-4">
+            <div class="container mx-auto text-center max-w-4xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-12">Hear from Our Happy Clients</h2>
+                <div class="relative overflow-hidden rounded-xl shadow-lg p-6 bg-primary-light">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide active" data-slide="0">
+                        <p class="text-lg italic text-gray-700 mb-6">"Lexuscare transformed my brows! The microblading was so natural and the team was incredibly professional. Highly recommend!"</p>
+                        <p class="font-semibold text-primary-dark">- Priya S., Kukatpally</p>
+                        <div class="flex justify-center mt-2">
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-yellow-400">&#9733;</span>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide hidden" data-slide="1">
+                        <p class="text-lg italic text-gray-700 mb-6">"The Hydra Facial left my skin glowing! Lexuscare's hygiene standards are impeccable, and the experience was truly relaxing."</p>
+                        <p class="font-semibold text-primary-dark">- Ananya R., Hyderabad</p>
+                        <div class="flex justify-center mt-2">
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-gray-300">&#9733;</span>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide hidden" data-slide="2">
+                        <p class="text-lg italic text-gray-700 mb-6">"Finally found a place for quality hair extensions! Lexuscare delivered exactly what I wanted, and they feel so natural."</p>
+                        <p class="font-semibold text-primary-dark">- Sneha K., Gachibowli</p>
+                        <div class="flex justify-center mt-2">
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-yellow-400">&#9733;</span>
+                            <span class="text-yellow-400">&#9733;</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider Navigation (Dots) -->
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                        <button class="testimonial-dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer active" data-dot="0"></button>
+                        <button class="testimonial-dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" data-dot="1"></button>
+                        <button class="testimonial-dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" data-dot="2"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Snapshot -->
+        <section class="py-16 bg-primary-light px-4">
+            <div class="container mx-auto text-center max-w-3xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-8">Visit Us in Hyderabad!</h2>
+                <p class="text-lg text-gray-700 mb-6">Conveniently located near KPHB Metro Station, Kukatpally, Hyderabad.</p>
+                <!-- Google Maps Embed Placeholder -->
+                <div class="aspect-video w-full rounded-xl overflow-hidden shadow-lg mb-8">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.335446059292!2d78.39702251487823!3d17.44319698804905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbd8b5f0000001%3A0x8f7d9e7b2f3e4d5!2sKPHB%20Metro%20Station!5e0!3m2!1sen!2sin!4v1678912345678!5m2!1sen!2sin"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="rounded-xl"
+                    ></iframe>
+                </div>
+                <a href="#contact" class="btn-primary text-white font-semibold py-3 px-8 text-xl rounded-full shadow-lg hover:scale-105 transition-all duration-300">Get Directions</a>
+            </div>
+        </section>
+
+        <!-- Placeholder for full Services Page, Gallery, About Us, FAQs, Contact Us -->
+        <!-- These sections would be more detailed if specifically requested, but this provides anchors and basic structure -->
+
+        <section id="services" class="py-16 px-4 bg-white">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-12">All Our Services</h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8">Discover our full range of advanced beauty and hair enhancement services, designed to bring out your natural radiance.</p>
+                <!-- This would be a detailed grid/list of all services with links to individual pages -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Example Service Block -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-left">
+                        <h3 class="text-xl font-semibold mb-2">Eyebrow Microblading</h3>
+                        <p class="text-gray-600 mb-4">Achieve semi-permanent, natural-looking hair strokes to define and fill your brows.</p>
+                        <a href="microblading.html" class="text-accent hover:underline font-medium">View Details &rarr;</a>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-left">
+                        <h3 class="text-xl font-semibold mb-2">Lip Tinting / Neutralization</h3>
+                        <p class="text-gray-600 mb-4">Enhance your natural lip color or correct uneven tones for a flawless look.</p>
+                        <a href="lip-tinting.html" class="text-accent hover:underline font-medium">View Details &rarr;</a>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-left">
+                        <h3 class="text-xl font-semibold mb-2">Hydra Facial</h3>
+                        <p class="text-gray-600 mb-4">A rejuvenating facial treatment that cleanses, extracts, and hydrates your skin.</p>
+                        <a href="hydrafacial.html" class="text-accent hover:underline font-medium">View Details &rarr;</a>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-left">
+                        <h3 class="text-xl font-semibold mb-2">Laser Hair Removal</h3>
+                        <p class="text-gray-600 mb-4">Permanent hair reduction solution using advanced laser technology for smooth skin.</p>
+                        <a href="laser-hair-removal.html" class="text-accent hover:underline font-medium">View Details &rarr;</a>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-left">
+                        <h3 class="text-xl font-semibold mb-2">Hair Extensions</h3>
+                        <p class="text-gray-600 mb-4">Add instant length and volume with our high-quality, seamlessly applied hair extensions.</p>
+                        <a href="hair-extensions.html" class="text-accent hover:underline font-medium">View Details &rarr;</a>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-left">
+                        <h3 class="text-xl font-semibold mb-2">Micro-needling</h3>
+                        <p class="text-gray-600 mb-4">Improve skin texture, fine lines, and scars with collagen induction therapy.</p>
+                        <a href="#" class="text-accent hover:underline font-medium">View Details &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-16 px-4 bg-primary-light">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-12">Our Transformations Gallery</h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8">See the incredible results our clients achieve. All photos used with full consent.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Gallery Item 1 -->
+                    <div class="relative group rounded-xl overflow-hidden shadow-md">
+                        <img src="https://placehold.co/600x400/D8BFD8/333333?text=Brows+Before" alt="Before Microblading" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <img src="https://placehold.co/600x400/ffbf00/333333?text=Brows+After" alt="After Microblading" class="w-full h-full object-cover">
+                            <span class="absolute text-white text-lg font-semibold bg-gray-900 bg-opacity-70 px-4 py-2 rounded-lg">Microblading: Natural Definition</span>
+                        </div>
+                    </div>
+                     <!-- Gallery Item 2 -->
+                     <div class="relative group rounded-xl overflow-hidden shadow-md">
+                        <img src="https://placehold.co/600x400/D8BFD8/333333?text=Lips+Before" alt="Before Lip Tinting" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <img src="https://placehold.co/600x400/ffbf00/333333?text=Lips+After" alt="After Lip Tinting" class="w-full h-full object-cover">
+                            <span class="absolute text-white text-lg font-semibold bg-gray-900 bg-opacity-70 px-4 py-2 rounded-lg">Lip Tinting: Enhanced Radiance</span>
+                        </div>
+                    </div>
+                    <!-- Gallery Item 3 -->
+                    <div class="relative group rounded-xl overflow-hidden shadow-md">
+                        <img src="https://placehold.co/600x400/D8BFD8/333333?text=Skin+Before" alt="Before Hydra Facial" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <img src="https://placehold.co/600x400/ffbf00/333333?text=Skin+After" alt="After Hydra Facial" class="w-full h-full object-cover">
+                            <span class="absolute text-white text-lg font-semibold bg-gray-900 bg-opacity-70 px-4 py-2 rounded-lg">Hydra Facial: Glowing Skin</span>
+                        </div>
+                    </div>
+                     <!-- Gallery Item 4 -->
+                     <div class="relative group rounded-xl overflow-hidden shadow-md">
+                        <img src="https://placehold.co/600x400/D8BFD8/333333?text=Hair+Before" alt="Before Hair Extensions" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <img src="https://placehold.co/600x400/ffbf00/333333?text=Hair+After" alt="After Hair Extensions" class="w-full h-full object-cover">
+                            <span class="absolute text-white text-lg font-semibold bg-gray-900 bg-opacity-70 px-4 py-2 rounded-lg">Hair Extensions: Voluminous Locks</span>
+                        </div>
+                    </div>
+                    <!-- Add more gallery items as needed -->
+                </div>
+            </div>
+        </section>
+
+
+        <section id="about" class="py-16 px-4 bg-white">
+            <div class="container mx-auto text-center max-w-4xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-8">About Lexuscare Brows and Beauty</h2>
+                <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                    At Lexuscare, we believe beauty is an art and a science. Founded with a passion for enhancing natural beauty and empowering confidence, we are Hyderabad's premier destination for advanced brow, lip, skin, and hair enhancement services. Our philosophy centers on providing bespoke solutions using the latest techniques and highest safety standards.
+                </p>
+                <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                    Our team of certified professionals is dedicated to understanding your unique vision and delivering results that are not only beautiful but also harmonious with your natural features. From perfectly sculpted brows to radiant skin and luscious hair, we invite you to experience the Lexuscare difference – where precision meets artistry in a serene and welcoming environment.
+                </p>
+                <h3 class="text-2xl font-semibold text-primary-dark mt-10 mb-6">Meet Our Expert Team</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                        <img src="https://placehold.co/150x150/ffbf00/333333?text=Trainer+1" alt="Team Member Name" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-accent">
+                        <h4 class="text-xl font-semibold text-primary-dark">Dr. Anjali Verma</h4>
+                        <p class="text-accent mb-2">Lead Microblading Artist & Trainer</p>
+                        <p class="text-gray-600">With over 10 years of experience, Dr. Anjali is renowned for her precise artistry and natural brow transformations.</p>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                        <img src="https://placehold.co/150x150/ffbf00/333333?text=Trainer+2" alt="Team Member Name" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-accent">
+                        <h4 class="text-xl font-semibold text-primary-dark">Ms. Ritu Sharma</h4>
+                        <p class="text-accent mb-2">Advanced Skincare & Laser Specialist</p>
+                        <p class="text-gray-600">Ritu brings extensive knowledge in advanced skincare treatments and laser technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faqs" class="py-16 px-4 bg-primary-light">
+            <div class="container mx-auto text-center max-w-4xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-12">Frequently Asked Questions</h2>
+                <div class="space-y-4 text-left">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md cursor-pointer faq-item" data-faq="0">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-primary-dark">Is Microblading painful?</h3>
+                            <svg class="w-6 h-6 transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <p class="mt-4 text-gray-600 hidden faq-answer">Most clients experience minimal discomfort, often describing it as a scratching sensation. We use a topical numbing cream to ensure your comfort throughout the procedure.</p>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md cursor-pointer faq-item" data-faq="1">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-primary-dark">How long do results last?</h3>
+                            <svg class="w-6 h-6 transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <p class="mt-4 text-gray-600 hidden faq-answer">Microblading typically lasts 12-18 months, while lip tinting can last 1-3 years. Longevity varies based on skin type, lifestyle, and aftercare. A touch-up is usually recommended after 4-6 weeks for optimal results.</p>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md cursor-pointer faq-item" data-faq="2">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-primary-dark">What is the aftercare for a Hydra Facial?</h3>
+                            <svg class="w-6 h-6 transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <p class="mt-4 text-gray-600 hidden faq-answer">After a Hydra Facial, avoid direct sun exposure, harsh exfoliants, and excessive sweating for 24-48 hours. Keep your skin hydrated and follow our specialist's personalized product recommendations for best results.</p>
+                    </div>
+                    <!-- Add more FAQs as needed -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 px-4 bg-white">
+            <div class="container mx-auto text-center max-w-4xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-12">Contact Us & Location</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary-dark mb-4">Get in Touch</h3>
+                        <p class="text-lg text-gray-700 mb-3">
+                            <i class="ph ph-map-pin text-accent mr-2"></i>
+                            Lexuscare Brows and Beauty<br>
+                            Near KPHB Metro Station, Kukatpally,<br>
+                            Hyderabad, Telangana, India
+                        </p>
+                        <p class="text-lg text-gray-700 mb-3">
+                            <i class="ph ph-phone text-accent mr-2"></i>
+                            Phone: <a href="tel:+919876543210" class="hover:underline">+91 98765 43210</a>
+                        </p>
+                        <p class="text-lg text-gray-700 mb-6">
+                            <i class="ph ph-envelope-simple text-accent mr-2"></i>
+                            Email: <a href="mailto:info@lexuscare.com" class="hover:underline">info@lexuscare.com</a>
+                        </p>
+
+                        <h3 class="text-2xl font-semibold text-primary-dark mb-4">Operating Hours</h3>
+                        <p class="text-lg text-gray-700">Mon - Sat: 10:00 AM - 8:00 PM</p>
+                        <p class="text-lg text-gray-700">Sunday: Closed</p>
+
+                        <div class="mt-8">
+                            <a href="#booking" class="btn-primary text-white font-semibold py-3 px-8 text-xl rounded-full shadow-lg inline-block hover:scale-105 transition-all duration-300">Book Your Appointment Online</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary-dark mb-4">Send Us a Message</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                                <input type="text" id="name" name="name" class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="your.email@example.com">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone (Optional)</label>
+                                <input type="tel" id="phone" name="phone" class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="+91 XXXXXXXXXX">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-y" placeholder="Your inquiry or message..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary text-white font-semibold py-3 px-8 text-xl rounded-full shadow-lg hover:scale-105 transition-all duration-300 w-full md:w-auto">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Online Booking Section (Placeholder for integration) -->
+        <section id="booking" class="py-16 px-4 bg-primary-light text-center">
+            <div class="container mx-auto max-w-3xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-8">Book Your Transformation Today!</h2>
+                <p class="text-lg text-gray-700 mb-6">Experience the convenience of booking your beauty service online. Select your preferred service, date, and time.</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <p class="text-xl font-semibold text-gray-800 mb-4">Online Booking System Integration</p>
+                    <p class="text-gray-600 mb-6">
+                        This section will seamlessly integrate with your chosen online booking platform (e.g., Fresha, Vagaro, or Mangomint)
+                        to allow clients to book appointments directly on your website.
+                        <br><br>
+                        For now, this is a placeholder. A direct link or an embedded widget from your booking system will go here.
+                    </p>
+                    <!-- Example of a direct link to a booking page -->
+                    <a href="https://www.fresha.com/your-lexuscare-profile" target="_blank" rel="noopener noreferrer" class="btn-primary text-white font-semibold py-3 px-8 text-xl rounded-full shadow-lg hover:scale-105 transition-all duration-300">Proceed to Online Booking</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-6 md:px-12 rounded-t-lg mt-16">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Lexuscare -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Lexuscare</h3>
+                <p class="text-sm">Your trusted destination for advanced beauty and hair enhancement in Hyderabad.</p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="https://www.instagram.com/lexuscare" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="ph ph-instagram-logo text-2xl"></i></a>
+                    <a href="https://www.facebook.com/lexuscare" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="ph ph-whatsapp-logo text-2xl"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#services" class="hover:text-white transition-colors duration-300">Services</a></li>
+                    <li><a href="#gallery" class="hover:text-white transition-colors duration-300">Gallery</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors duration-300">About Us</a></li>
+                    <li><a href="#testimonials" class="hover:text-white transition-colors duration-300">Testimonials</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Contact Us</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><i class="ph ph-map-pin mr-2"></i>KPHB Metro, Kukatpally, Hyderabad</li>
+                    <li><i class="ph ph-phone mr-2"></i><a href="tel:+919876543210" class="hover:text-white">+91 98765 43210</a></li>
+                    <li><i class="ph ph-envelope-simple mr-2"></i><a href="mailto:info@lexuscare.com" class="hover:text-white">info@lexuscare.com</a></li>
+                    <li><i class="ph ph-clock mr-2"></i>Mon-Sat: 10 AM - 8 PM</li>
+                </ul>
+            </div>
+
+            <!-- Booking & FAQs -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Support</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#booking" class="hover:text-white transition-colors duration-300">Book Online</a></li>
+                    <li><a href="#faqs" class="hover:text-white transition-colors duration-300">FAQs</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors duration-300">Terms & Conditions</a></li>
                 </ul>
             </div>
         </div>
-    </nav>
 
-    <!-- Hero Carousel -->
-    <div id="luxusCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#luxusCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#luxusCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#luxusCarousel" data-bs-slide-to="2"></button>
-            <button type="button" data-bs-target="#luxusCarousel" data-bs-slide-to="3"></button>
-            <button type="button" data-bs-target="#luxusCarousel" data-bs-slide-to="4"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active"><img src="https://www.dermaalluraclinic.com/assets/images/help/banner-2.jpg" class="d-block w-100" alt="Hair" /></div>
-            <div class="carousel-item "><img src="https://t3.ftcdn.net/jpg/11/85/63/30/360_F_1185633006_LMe9VgPrfRqEAmEdXLeBUVbudQ9FOa2J.jpg" class="d-block w-100" alt="Spa" /></div>
-            <div class="carousel-item"><img src="https://www.vhbskincare.com/cdn/shop/articles/VividHealth_BeautySkincare-91762-Treat-Facial-Regularly-Blogbanner1.jpg?v=1642781204" class="d-block w-100" alt="Facial" /></div>
-            <div class="carousel-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYfnVb7pBxKHPxJKXRWGj0gEBRy6fEYlZb4w&s" class="d-block w-100" alt="Makeup" /></div>
-            <div class="carousel-item"><img src="https://images.all-free-download.com/images/graphicwebp/beach_boy_554496.webp" class="d-block w-100" alt="Clinic" /></div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#luxusCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#luxusCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </div>
-
-    <!-- About Section -->
-    <section id="about" class="py-5 bg-light text-center fade-in">
-        <div class="container">
-            <h2 class="text-pink">About Luxus Care</h2>
-            <p class="lead">Luxus Care is a premium beauty and wellness clinic in Hyderabad offering personalized skin, hair, and beauty treatments.</p>
-        </div>
-    </section>
-
-    <!-- Treatments Section -->
-    <section id="treatments" class="py-5">
-        <div class="container">
-            <h2 class="text-center text-pink mb-5">Our Signature Treatments</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card treatment-card">
-                        <img src="https://images.all-free-download.com/images/graphicwebp/belgium_514505.webp" class="card-img" alt="Hydra Facial" />
-                        <div class="card-img-overlay d-flex align-items-end">
-                            <h5 class="card-title text-white">Hydra Facial</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card treatment-card">
-                        <img src="https://images.all-free-download.com/images/thumb/brussels_belgium_sky_215636.webp" class="card-img" alt="Laser Hair Removal" />
-                        <div class="card-img-overlay d-flex align-items-end">
-                            <h5 class="card-title text-white">Laser Hair Removal</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card treatment-card">
-                        <img src="https://images.all-free-download.com/images/thumb/bmx_sports_jumping_214527.webp" class="card-img" alt="Hair PRP Therapy" />
-                        <div class="card-img-overlay d-flex align-items-end">
-                            <h5 class="card-title text-white">Hair PRP Therapy</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card treatment-card">
-                        <img src="https://images.all-free-download.com/images/thumb/diamond_collector_556147.webp" class="card-img" alt="Acne Treatment" />
-                        <div class="card-img-overlay d-flex align-items-end">
-                            <h5 class="card-title text-white">Acne Treatment</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card treatment-card">
-                        <img src="https://images.all-free-download.com/images/thumb/belgium_chateau_castle_220078.webp" class="card-img" alt="Bridal Makeup" />
-                        <div class="card-img-overlay d-flex align-items-end">
-                            <h5 class="card-title text-white">Bridal Makeup</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card treatment-card">
-                        <img src="https://images.all-free-download.com/images/thumb/baby_lemur_515733.webp" class="card-img" alt="Relaxation Therapy" />
-                        <div class="card-img-overlay d-flex align-items-end">
-                            <h5 class="card-title text-white">Relaxation Therapy</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="py-5 bg-light text-center">
-        <div class="container">
-            <h2 class="text-pink mb-4">What Clients Say</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="p-3 bg-white rounded shadow-sm text-start">
-                        <i class="fas fa-quote-left text-pink fs-2"></i>
-                        <p class="mt-2">"Wonderful experience! The facial was heavenly."</p>
-                        <div class="d-flex align-items-center mt-3">
-                            <img src="https://i.pravatar.cc/50?img=1" class="rounded-circle me-2" alt="Priya R">
-                            <strong>Priya R</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-3 bg-white rounded shadow-sm text-start">
-                        <i class="fas fa-quote-left text-pink fs-2"></i>
-                        <p class="mt-2">"Excellent service and a relaxing atmosphere. Highly recommend!"</p>
-                        <div class="d-flex align-items-center mt-3">
-                            <img src="https://i.pravatar.cc/50?img=2" class="rounded-circle me-2" alt="John D">
-                            <strong>John D</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-3 bg-white rounded shadow-sm text-start">
-                        <i class="fas fa-quote-left text-pink fs-2"></i>
-                        <p class="mt-2">"The hair treatment worked wonders! I can feel the difference."</p>
-                        <div class="d-flex align-items-center mt-3">
-                            <img src="https://i.pravatar.cc/50?img=3" class="rounded-circle me-2" alt="Rohit P">
-                            <strong>Rohit P</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-3 bg-white rounded shadow-sm text-start">
-                        <i class="fas fa-quote-left text-pink fs-2"></i>
-                        <p class="mt-2">"Highly professional and expert staff. Loved the skincare services."</p>
-                        <div class="d-flex align-items-center mt-3">
-                            <img src="https://i.pravatar.cc/50?img=4" class="rounded-circle me-2" alt="Meera K">
-                            <strong>Meera K</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-3 bg-white rounded shadow-sm text-start">
-                        <i class="fas fa-quote-left text-pink fs-2"></i>
-                        <p class="mt-2">"My skin has never felt better. Thank you Luxus Care for the amazing treatment!"</p>
-                        <div class="d-flex align-items-center mt-3">
-                            <img src="https://i.pravatar.cc/50?img=5" class="rounded-circle me-2" alt="Anjali S">
-                            <strong>Anjali S</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-3 bg-white rounded shadow-sm text-start">
-                        <i class="fas fa-quote-left text-pink fs-2"></i>
-                        <p class="mt-2">"Had a rejuvenating spa experience. The ambiance was perfect!"</p>
-                        <div class="d-flex align-items-center mt-3">
-                            <img src="https://i.pravatar.cc/50?img=6" class="rounded-circle me-2" alt="Neha T">
-                            <strong>Neha T</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <h2 class="text-center text-pink mb-4">Get in Touch</h2>
-            <form>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="clientName" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="clientName" required />
-                    </div>
-                    <div class="col-md-6">
-                        <label for="clientPhone" class="form-label">Phone</label>
-                        <input type="tel" class="form-control" id="clientPhone" required />
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="clientConcern" class="form-label">Your Concern</label>
-                    <textarea class="form-control" id="clientConcern" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-pink">Send</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.google.com/maps?q=17.4931265,78.4096258&hl=es;z=14&output=embed" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <p class="fs-5 mb-2">Plot No-268, 1st floor, Opp. Sri Udipi Grand,<br />Vivekananda Nagar, Kukatpally, Hyderabad, Telangana 500072</p>
-                    <p class="fs-5">Phone: <a href="tel:09032011491" class="text-white">090320 11491</a></p>
-                    <div class="mt-3">
-                        <a href="https://www.instagram.com/" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://www.facebook.com/" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="https://wa.me/9090909090" class="text-white"><i class="fab fa-whatsapp fa-lg"></i></a>
-                    </div>
-                </div>
-            </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-500">
+            &copy; <span id="current-year"></span> Lexuscare Brows and Beauty. All rights reserved.
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <a href="#" class="back-to-top position-fixed bottom-0 end-0 m-3 shadow-lg">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    <script>
+        // Get current year for footer copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Testimonial slider functionality
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            testimonialSlides.forEach((slide, i) => {
+                slide.classList.add('hidden');
+                slide.classList.remove('active');
+                testimonialDots[i].classList.remove('bg-accent');
+                testimonialDots[i].classList.add('bg-gray-400');
+            });
+
+            testimonialSlides[index].classList.remove('hidden');
+            testimonialSlides[index].classList.add('active');
+            testimonialDots[index].classList.remove('bg-gray-400');
+            testimonialDots[index].classList.add('bg-accent'); // Highlight active dot
+            currentSlide = index;
+        }
+
+        // Initialize dots
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        // Auto-advance testimonials
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % testimonialSlides.length;
+            showSlide(currentSlide);
+        }, 7000); // Change slide every 7 seconds
+
+        // Initial display
+        showSlide(0);
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-icon');
+                
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180'); // Rotate arrow icon
+            });
+        });
+
+        // Smooth scroll for internal links (already handled by html { scroll-behavior: smooth; } but good to have JS fallback/enhancement if needed)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    // Prevent default anchor click behavior
+                    e.preventDefault(); 
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Scroll to the element, accounting for fixed header
+                        const headerOffset = document.querySelector('header').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        window.scrollTo({
+                            top: elementPosition - headerOffset - 20, // Adjust 20px for extra padding
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+    </script>
 </body>
-
 </html>
