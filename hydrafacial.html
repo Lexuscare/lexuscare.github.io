@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydra Facial - Lexuscare Brows and Beauty</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Hero background specific to Hydra Facial */
+        .hero-hydrafacial-bg {
+            background-image: url('https://placehold.co/1920x800/d0f0d0/333333?text=Hydra+Facial+Hero+Image');
+            background-size: cover;
+            background-position: center;
+        }
+        @media (max-width: 768px) {
+            .hero-hydrafacial-bg {
+                background-image: url('https://placehold.co/768x400/d0f0d0/333333?text=Hydra+Facial+Hero+Mobile');
+            }
+        }
+
+        /* Gradient for CTA buttons for premium feel */
+        .btn-primary {
+            background: linear-gradient(to right, #fca311, #ffbf00); /* Gold/amber gradient */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            box-shadow: 0 4px 15px rgba(252, 163, 17, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(252, 163, 17, 0.6);
+        }
+        /* Color palette (soft, sophisticated tones) */
+        .bg-primary-light { background-color: #F8F5F2; /* Creamy White */ }
+        .text-primary-dark { color: #333333; /* Deep Charcoal */ }
+        .text-accent { color: #D8BFD8; /* Soft Blush Pink */ }
+        .border-accent { border-color: #D8BFD8; }
+
+        /* Style for before/after slider */
+        .before-after-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 1rem; /* rounded-xl */
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1); /* shadow-lg */
+        }
+        .before-after-slider img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .before-after-slider .after-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%; /* Start with 50% for demonstration */
+            height: 100%;
+            overflow: hidden;
+        }
+        .before-after-slider .after-image img {
+            width: 200%; /* Image is twice the width of its container to show the full image */
+            height: 100%;
+            object-fit: cover;
+            object-position: 100% 0; /* Position to show the right half of the image */
+        }
+        .before-after-slider .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background-color: white;
+            cursor: ew-resize;
+            z-index: 10;
+            transform: translateX(-50%);
+        }
+        .before-after-slider .slider-handle::before {
+            content: '↔';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            color: #333;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+    </style>
+    <!-- Phosphor Icons for simple illustrative icons (CDN) -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/phosphor.js"></script>
+</head>
+<body class="bg-primary-light text-primary-dark">
+
+    <!-- Header (Simplified for landing page, but linking back to main site) -->
+    <header class="bg-white shadow-sm py-4 px-6 md:px-12 fixed w-full z-50 rounded-b-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html#home" class="flex items-center space-x-2">
+                <img src="https://placehold.co/50x50/333333/ffffff?text=LX" alt="Lexuscare Logo" class="h-10 w-10 rounded-full">
+                <span class="text-2xl font-bold text-primary-dark">Lexuscare</span>
+            </a>
+
+            <!-- Navigation Bar (Desktop) -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">Home</a>
+                <a href="index.html#services" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">Services</a>
+                <a href="index.html#gallery" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">Gallery</a>
+                <a href="index.html#contact" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">Contact Us</a>
+            </nav>
+
+            <!-- CTA Buttons (Desktop) -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="tel:+919876543210" class="text-lg text-gray-700 hover:text-accent transition-colors duration-300">+91 98765 43210</a>
+                <a href="#booking-section" class="btn-primary text-white font-semibold py-2 px-6 rounded-full shadow-lg">Book Now</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <nav id="mobile-menu" class="hidden md:hidden mt-4 space-y-3 text-center">
+            <a href="index.html#home" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">Home</a>
+            <a href="index.html#services" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">Services</a>
+            <a href="index.html#gallery" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">Gallery</a>
+            <a href="index.html#contact" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">Contact Us</a>
+            <div class="pt-4 border-t border-gray-200">
+                <a href="tel:+919876543210" class="block text-lg text-gray-700 hover:text-accent py-2 rounded-md transition-colors duration-300">+91 98765 43210</a>
+                <a href="#booking-section" class="block btn-primary text-white font-semibold py-2 px-6 rounded-full mx-auto mt-3 shadow-lg max-w-xs">Book Your Consultation</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-20"> <!-- Padding top to account for fixed header -->
+
+        <!-- Hero Section -->
+        <section class="hero-hydrafacial-bg relative h-[60vh] flex items-center justify-center text-center px-4 rounded-b-2xl overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Overlay for text readability -->
+            <div class="relative z-10 text-white max-w-3xl mx-auto p-4">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4 drop-shadow-md">Hydra Facial: Unlock Your Skin's Radiance.</h1>
+                <p class="text-lg sm:text-xl md:text-2xl mb-8 drop-shadow-md">Deep cleanse, exfoliate, and hydrate for an instant, glowing complexion.</p>
+                <a href="#booking-section" class="btn-primary text-white font-semibold py-3 px-8 text-xl rounded-full shadow-xl hover:scale-105 transition-all duration-300">Book Your Hydra Facial Session</a>
+            </div>
+        </section>
+
+        <!-- Detailed Description Section -->
+        <section class="py-16 bg-white px-4">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark text-center mb-10">What is a Hydra Facial?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                            The Hydra Facial is a revolutionary, non-invasive skincare treatment that delivers instant and noticeable results with no downtime. It’s a multi-step procedure that cleanses, exfoliates, extracts impurities, and infuses your skin with hydrating serums rich in antioxidants, peptides, and hyaluronic acid. This treatment is highly customizable and addresses a variety of skin concerns, from fine lines and wrinkles to clogged pores and uneven skin tone.
+                        </p>
+                        <h3 class="text-2xl font-semibold text-primary-dark mb-4">Benefits of Hydra Facial:</h3>
+                        <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
+                            <li><i class="ph ph-check-circle text-accent mr-2"></i>Deeply cleanses and exfoliates.</li>
+                            <li><i class="ph ph-check-circle text-accent mr-2"></i>Painlessly extracts impurities.</li>
+                            <li><i class="ph ph-check-circle text-accent mr-2"></i>Intensely hydrates the skin.</li>
+                            <li><i class="ph ph-check-circle text-accent mr-2"></i>Reduces fine lines and wrinkles.</li>
+                            <li><i class="ph ph-check-circle text-accent mr-2"></i>Improves skin tone, texture, and elasticity.</li>
+                            <li><i class="ph ph-check-circle text-accent mr-2"></i>Minimizes pore size and congestion.</li>
+                            <li><i class="ph ph-check-circle text-accent mr-2"></i>Suitable for all skin types, including sensitive skin.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x400/d0f0d0/333333?text=Hydra+Facial+Machine" alt="Hydra Facial Process" class="rounded-xl shadow-lg">
+                    </div>
+                </div>
+
+                <div class="mt-16">
+                    <h3 class="text-3xl font-bold text-primary-dark text-center mb-8">The Lexuscare Hydra Facial Experience</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                            <i class="ph ph-flask text-accent icon mb-4"></i>
+                            <h4 class="text-xl font-semibold mb-2">1. Vortex-Cleansing & Exfoliation</h4>
+                            <p class="text-gray-600">The treatment begins with a gentle cleansing and exfoliation to remove dead skin cells and prepare your skin for deeper treatment.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                            <i class="ph ph-magnifying-glass text-accent icon mb-4"></i>
+                            <h4 class="text-xl font-semibold mb-2">2. Vortex-Extraction & Hydration</h4>
+                            <p class="text-gray-600">A painless suction technology extracts impurities from pores, while simultaneously delivering moisturizing serums to hydrate the skin.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                            <i class="ph ph-sparkle text-accent icon mb-4"></i>
+                            <h4 class="text-xl font-semibold mb-2">3. Serum Fusion & Protection</h4>
+                            <p class="text-gray-600">Finally, specific antioxidants and peptides are infused into your skin, providing protection and maximizing your skin's healthy glow.</p>
+                        </div>
+                    </div>
+                    <p class="text-center text-lg text-gray-700 mt-10">
+                        Experience the gold standard in facial treatments at Lexuscare. Our expert aestheticians utilize the authentic Hydra Facial system to ensure safe, effective, and truly transformative results.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Before & After Slider/Gallery -->
+        <section class="py-16 bg-primary-light px-4">
+            <div class="container mx-auto text-center max-w-4xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-12">Hydra Facial Transformations</h2>
+                <div class="before-after-slider relative w-full aspect-video">
+                    <img src="https://placehold.co/800x600/e0ffe0/333333?text=Skin+Before" alt="Before Hydra Facial" class="before-image rounded-xl">
+                    <div class="after-image rounded-xl">
+                        <img src="https://placehold.co/800x600/aaffaa/333333?text=Skin+After" alt="After Hydra Facial" class="after-image-inner">
+                    </div>
+                    <div class="slider-handle"></div>
+                </div>
+                <p class="text-sm text-gray-600 mt-4">Drag the slider to see the incredible transformation!</p>
+                <p class="text-sm text-gray-600 mt-2">All client photos are used with full consent.</p>
+            </div>
+        </section>
+
+        <!-- FAQs for this specific service -->
+        <section class="py-16 bg-white px-4">
+            <div class="container mx-auto text-center max-w-4xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-12">Hydra Facial FAQs</h2>
+                <div class="space-y-4 text-left">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md cursor-pointer faq-item" data-faq="0">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-primary-dark">Is Hydra Facial suitable for all skin types?</h3>
+                            <svg class="w-6 h-6 transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <p class="mt-4 text-gray-600 hidden faq-answer">Yes, the Hydra Facial is designed to be gentle and effective for all skin types, including sensitive, aging, ethnic, and acne-prone skin. Your aesthetician will customize the serums used to address your specific concerns.</p>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md cursor-pointer faq-item" data-faq="1">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-primary-dark">How long does a Hydra Facial take and what is the downtime?</h3>
+                            <svg class="w-6 h-6 transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <p class="mt-4 text-gray-600 hidden faq-answer">A Hydra Facial typically takes about 30-45 minutes, making it a perfect "lunchtime" treatment. There is no downtime; you can immediately return to your normal activities with radiant, refreshed skin.</p>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md cursor-pointer faq-item" data-faq="2">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-primary-dark">How often should I get a Hydra Facial?</h3>
+                            <svg class="w-6 h-6 transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <p class="mt-4 text-gray-600 hidden faq-answer">For optimal skin health and to maintain your results, we recommend a Hydra Facial every 3-4 weeks. Regular treatments help to continuously improve skin texture, tone, and overall appearance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing/Consultation Info & CTA -->
+        <section id="pricing-booking" class="py-16 bg-primary-light px-4 text-center">
+            <div class="container mx-auto max-w-3xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-8">Ready for Instantly Radiant Skin?</h2>
+                <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                    <p class="text-2xl font-semibold text-gray-800 mb-4">Pricing for Hydra Facial</p>
+                    <p class="text-xl text-gray-700 mb-6">
+                        Hydra Facial: <span class="font-bold text-primary-dark">₹3,000 - ₹5,000</span> (per session)
+                    </p>
+                    <p class="text-md text-gray-600">
+                        * Pricing may vary based on customization and boosters used. A personalized quote will be provided during your consultation.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#booking-section" class="btn-primary text-white font-semibold py-3 px-8 text-xl rounded-full shadow-lg inline-block hover:scale-105 transition-all duration-300">Book Your Hydra Facial Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Services -->
+        <section class="py-16 bg-white px-4">
+            <div class="container mx-auto text-center max-w-5xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-12">Explore Other Lexuscare Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Related Service 1: Microblading -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold mb-2">Eyebrow Microblading</h3>
+                        <p class="text-gray-600 mb-4">Achieve semi-permanent, natural-looking hair strokes for defined brows.</p>
+                        <a href="microblading.html" class="text-accent hover:underline font-medium">Learn More &rarr;</a>
+                    </div>
+                    <!-- Related Service 2: Lip Tinting -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold mb-2">Lip Tinting / Neutralization</h3>
+                        <p class="text-gray-600 mb-4">Enhance your natural lip color or correct uneven tones.</p>
+                        <a href="lip-tinting.html" class="text-accent hover:underline font-medium">Learn More &rarr;</a>
+                    </div>
+                    <!-- Related Service 3: Laser Hair Removal -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold mb-2">Laser Hair Removal</h3>
+                        <p class="text-gray-600 mb-4">Achieve smooth, hair-free skin with our advanced laser hair removal treatments.</p>
+                        <a href="laser-hair-removal.html" class="text-accent hover:underline font-medium">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <a href="index.html#services" class="btn-primary text-white font-semibold py-3 px-8 text-xl rounded-full shadow-lg hover:scale-105 transition-all duration-300">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Online Booking Section (Placeholder for integration) -->
+        <section id="booking-section" class="py-16 px-4 bg-primary-light text-center">
+            <div class="container mx-auto max-w-3xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary-dark mb-8">Book Your Hydra Facial Appointment!</h2>
+                <p class="text-lg text-gray-700 mb-6">Experience the convenience of booking your beauty service online. Select your preferred date and time for a radiant skin transformation.</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <p class="text-xl font-semibold text-gray-800 mb-4">Online Booking System Integration</p>
+                    <p class="text-gray-600 mb-6">
+                        This section will seamlessly integrate with your chosen online booking platform (e.g., Fresha, Vagaro, or Mangomint)
+                        to allow clients to book appointments directly on your website.
+                        <br><br>
+                        For now, this is a placeholder. A direct link or an embedded widget from your booking system will go here.
+                    </p>
+                    <!-- Example of a direct link to a booking page -->
+                    <a href="https://www.fresha.com/your-lexuscare-profile" target="_blank" rel="noopener noreferrer" class="btn-primary text-white font-semibold py-3 px-8 text-xl rounded-full shadow-lg hover:scale-105 transition-all duration-300">Proceed to Online Booking</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-6 md:px-12 rounded-t-lg mt-16">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Lexuscare -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Lexuscare</h3>
+                <p class="text-sm">Your trusted destination for advanced beauty and hair enhancement in Hyderabad.</p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="https://www.instagram.com/lexuscare" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="ph ph-instagram-logo text-2xl"></i></a>
+                    <a href="https://www.facebook.com/lexuscare" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="ph ph-whatsapp-logo text-2xl"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html#services" class="hover:text-white transition-colors duration-300">Services</a></li>
+                    <li><a href="index.html#gallery" class="hover:text-white transition-colors duration-300">Gallery</a></li>
+                    <li><a href="index.html#about" class="hover:text-white transition-colors duration-300">About Us</a></li>
+                    <li><a href="index.html#testimonials" class="hover:text-white transition-colors duration-300">Testimonials</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Contact Us</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><i class="ph ph-map-pin mr-2"></i>KPHB Metro, Kukatpally, Hyderabad</li>
+                    <li><i class="ph ph-phone mr-2"></i><a href="tel:+919876543210" class="hover:text-white">+91 98765 43210</a></li>
+                    <li><i class="ph ph-envelope-simple mr-2"></i><a href="mailto:info@lexuscare.com" class="hover:text-white">info@lexuscare.com</a></li>
+                    <li><i class="ph ph-clock mr-2"></i>Mon-Sat: 10 AM - 8 PM</li>
+                </ul>
+            </div>
+
+            <!-- Booking & FAQs -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Support</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#booking-section" class="hover:text-white transition-colors duration-300">Book Online</a></li>
+                    <li><a href="#faqs-section" class="hover:text-white transition-colors duration-300">FAQs</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors duration-300">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-500">
+            &copy; <span id="current-year"></span> Lexuscare Brows and Beauty. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Get current year for footer copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-icon');
+                
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180'); // Rotate arrow icon
+            });
+        });
+
+        // Before & After Slider JavaScript
+        const slider = document.querySelector('.before-after-slider');
+        const afterImage = slider.querySelector('.after-image');
+        const handle = slider.querySelector('.slider-handle');
+
+        let isDragging = false;
+
+        handle.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            e.preventDefault(); // Prevent default browser drag behavior
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+
+            let rect = slider.getBoundingClientRect();
+            let x = e.clientX - rect.left; // x position within the element.
+            let percentage = (x / rect.width) * 100;
+
+            // Clamp the percentage between 0 and 100
+            percentage = Math.max(0, Math.min(percentage, 100));
+
+            afterImage.style.width = percentage + '%';
+            handle.style.left = percentage + '%';
+        });
+
+        // Touch event handling for slider
+        handle.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            e.preventDefault(); // Prevent scrolling while dragging
+        }, { passive: false });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+
+            let touch = e.touches[0]; // Get the first touch point
+            let rect = slider.getBoundingClientRect();
+            let x = touch.clientX - rect.left; // x position within the element.
+            let percentage = (x / rect.width) * 100;
+
+            // Clamp the percentage between 0 and 100
+            percentage = Math.max(0, Math.min(percentage, 100));
+
+            afterImage.style.width = percentage + '%';
+            handle.style.left = percentage + '%';
+        }, { passive: false });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    e.preventDefault(); 
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = document.querySelector('header').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        window.scrollTo({
+                            top: elementPosition - headerOffset - 20, 
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
